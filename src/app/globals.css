@@ -1,0 +1,17 @@
+:root {
+    --font-primary-color: #002437;
+    --bg-primary-color: #168BCA;
+    --bg-terminal: #181818;
+    --font-terminal: #FFFFFF;
+    --font-terminal-secondary: rgba(255, 255, 255, 0.5);
+}
+
+body, button {
+    color: var(--font-primary-color);
+    background-color: var(--bg-primary-color);
+}
+
+button {
+    border: none;
+    background-color: unset;
+}

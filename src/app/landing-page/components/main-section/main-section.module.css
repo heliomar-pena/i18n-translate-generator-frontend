@@ -1,0 +1,12 @@
+.mainSection .title {
+    font-size: 3rem;
+}
+
+.mainSection .description {
+    font-size: 1rem;
+    margin-top: 0rem;
+}
+
+.mainSection .title, .mainSection .description { 
+    margin: 1.625rem 5.625rem 2.5rem;
+}

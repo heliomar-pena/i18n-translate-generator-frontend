@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.75rem 3.8125rem 1.0625rem; 
+}
+
+.title {
+    font-size: 2.5rem;
+}
+
+.actionButtons {
+    display: flex;
+    list-style: none;
+    gap: 1.0625rem;
+    align-items: center;
+    font-size: 1rem;
+}
