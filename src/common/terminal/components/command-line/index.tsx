@@ -6,9 +6,10 @@ export interface CommandLineProps {
     name?: string;
     system?: string;
     path?: string;
+    focused?: boolean;
 }
 
-export default function CommandLine ({ command, name, system, path }: CommandLineProps) {
+export default function CommandLine ({ command, name, system, path, focused }: CommandLineProps) {
     const prefix = useMemo(() => {
         let result = '';
         if (name) result += name;
@@ -20,7 +21,7 @@ export default function CommandLine ({ command, name, system, path }: CommandLin
     }, [name, path, system])
     
     return (
-        <div className={styles.commandLine}>
+        <div className={`${styles.commandLine} ${focused ? styles.commandLineFocused : ''}`}>
             <span className={styles.command}>{prefix}{command}</span>
         </div>
     )

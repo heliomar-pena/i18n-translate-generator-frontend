@@ -1,0 +1,19 @@
+.commandLineFocused::after {
+    content: 'l';
+    background-color: white;
+    height: 20px;
+    width: 10px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -26,7 +26,7 @@ const useTerminal = (config?: useTerminalProps) => {
                 clearInterval(interval);
                 cb();
             }
-        }, 200);
+        }, 50);
     };
 
     /**

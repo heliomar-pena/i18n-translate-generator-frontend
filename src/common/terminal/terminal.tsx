@@ -52,6 +52,7 @@ export default function Terminal({ oldCommands, currentCommand = '', currentPath
         })
       }
       <CommandLine
+        focused
         command={currentCommand}
         name={currentName}
         system={currentSystem}
