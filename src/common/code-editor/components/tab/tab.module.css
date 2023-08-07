@@ -1,0 +1,21 @@
+.tab {
+    color: var(--font-terminal);
+    display: flex;
+    align-items: center;
+    gap: 0.6875rem;
+    padding: 0.4688rem 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tab:first-of-type {
+    border-radius: 1.3125rem 0 0 0;
+}
+
+.tab:hover {
+    background-color: var(--editor-tab-hover);
+}
+
+.tabIcon {
+    color: var(--editor-json-icon);
+}

@@ -1,0 +1,12 @@
+.tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    background-color: var(--bg-terminal);
+    border-bottom: 1px solid var(--font-terminal);
+    border-radius: 1.3125rem 1.3125rem 0 0;
+    font-size: 0.75rem;
+}

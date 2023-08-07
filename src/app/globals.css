@@ -4,6 +4,8 @@
     --bg-terminal: #181818;
     --font-terminal: #FFFFFF;
     --font-terminal-secondary: rgba(255, 255, 255, 0.5);
+    --editor-json-icon: #EDB52B;
+    --editor-tab-hover: #2D2D2D;
 }
 
 body, button {

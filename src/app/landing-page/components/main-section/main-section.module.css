@@ -10,3 +10,14 @@
 .mainSection .title, .mainSection .description { 
     margin: 1.625rem 5.625rem 2.5rem;
 }
+
+.terminal {
+    height: 30rem;
+}
+
+.mainExampleContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    justify-content: space-between;
+}
