@@ -6,6 +6,8 @@
     --font-terminal-secondary: rgba(255, 255, 255, 0.5);
     --editor-json-icon: #EDB52B;
     --editor-tab-hover: #2D2D2D;
+    --editor-breadcrumb: #8E8E8E;
+    --editor-background: #1F1F1F;
 }
 
 body, button {

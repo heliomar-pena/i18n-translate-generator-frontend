@@ -19,3 +19,7 @@
 .tabIcon {
     color: var(--editor-json-icon);
 }
+
+.tabActive {
+    background-color: var(--editor-tab-hover);
+}

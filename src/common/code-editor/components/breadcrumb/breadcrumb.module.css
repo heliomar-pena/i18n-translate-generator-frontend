@@ -1,0 +1,5 @@
+.breadcrumb {
+    color: var(--editor-breadcrumb);
+    background-color: var(--editor-background);
+    padding: 0.5rem 1.375rem
+}

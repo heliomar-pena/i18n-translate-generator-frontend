@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import CommandLine from './components/command-line';
 import CommandOutput from './components/command-output';
 import styles from './terminal.module.css';
@@ -32,7 +33,7 @@ export default function Terminal({ oldCommands, currentCommand = '', currentPath
       {
         oldCommands?.map((oldCommand, index) => { 
           return (
-            <>
+            <Fragment key={`Command-${index}`}>
               <CommandLine 
                 key={`CommandLine-${index}`}
                 command={oldCommand.command.text}
@@ -47,7 +48,7 @@ export default function Terminal({ oldCommands, currentCommand = '', currentPath
                   output={oldCommand.output}
                 />
               }
-            </>
+            </Fragment>
           )
         })
       }

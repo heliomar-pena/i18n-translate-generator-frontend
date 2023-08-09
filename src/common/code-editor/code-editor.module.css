@@ -1,0 +1,6 @@
+.editorCode {
+    height: 27.0375rem;
+    background-color: var(--editor-background);
+    border-radius: 0 0 1.3125rem 1.3125rem;
+    overflow-y: scroll;
+}

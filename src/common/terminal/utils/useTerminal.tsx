@@ -17,14 +17,14 @@ const useTerminal = (config?: useTerminalProps) => {
     const [name, setName] = useState(config?.name || '');
     const [oldCommands, setOldCommands] = useState<oldCommand[]>(config?.oldCommands || []);
 
-    const write = (command: string, cb: () => void) => {
+    const write = (command: string, cb: (command?: string) => void) => {
         const commandByChars = command.split('');
         const interval = setInterval(() => {
             if (commandByChars.length) {
                 setCommand((prev) => prev + commandByChars.shift());
             } else {
                 clearInterval(interval);
-                cb();
+                cb(command);
             }
         }, 50);
     };
@@ -34,6 +34,7 @@ const useTerminal = (config?: useTerminalProps) => {
      */
     const clear = () => {
         setCommand('');
+        setOldCommands([])
         setPath('');
         setSystem('');
         setName('');
@@ -43,10 +44,10 @@ const useTerminal = (config?: useTerminalProps) => {
      * Saves the current command in history with their output and clears the terminal
      * @param output - The output of the current command
      */
-    const execute = (output?: string) => {
-        setOldCommands([...oldCommands, {
+    const execute = ({ output, customCommand }: { output?: string, customCommand?: string }) => {
+        setOldCommands((prev) => [...prev, {
             command: {
-                text: command,
+                text: customCommand || command,
                 name,
                 system,
                 path
