@@ -10,7 +10,7 @@ import Breadcrumb from './components/breadcrumb';
 const b612Mono = B612_Mono({ weight: "400", subsets: ["latin"] });
 
 type FileContent = {
-    [key: string]: string
+    [key: string]: any
 }
 
 export type File = {

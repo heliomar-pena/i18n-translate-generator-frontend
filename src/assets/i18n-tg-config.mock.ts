@@ -1,6 +1,6 @@
-import { file } from "@/common/code-editor/code-editor";
+import { File } from "@/common/code-editor/code-editor";
 
-const i18nTgConfigMock: file = {
+const i18nTgConfigMock: File = {
     name: "i18n-auto-translate.config.json",
     path: [],
     content: {

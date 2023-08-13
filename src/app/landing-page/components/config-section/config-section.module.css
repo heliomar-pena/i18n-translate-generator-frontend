@@ -1,0 +1,11 @@
+.title {
+    font-size: 36px;
+    margin: 0 auto 2.1875rem;
+    padding: 0 3.0625rem;
+    text-align: left;
+    display: block;
+}
+
+.codeEditor {
+    margin: 0 5rem;
+}
