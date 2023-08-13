@@ -19,45 +19,48 @@ export default function MainSection() {
         execute,
     } = useTerminal();
 
-    const secondStep = () => {
-        write('npx i18n-translate-generator translate "Welcome to i18n-translate-generator" "en" "welcome"', (command) => {
-            const translations = [...TranslationsMock];
-            const interval = setInterval(() => {
-                const currentTranslation = translations.shift();
-                
-                if (currentTranslation) {
-                    const { welcome } = currentTranslation.content;
-               
-                    setEditorFiles((prev) => prev.map((prevFile) => prevFile.name === currentTranslation.name ? { ...prevFile, content: { ...prevFile.content, welcome }, lastUpdated: new Date() } : prevFile));
-                } else {
-                    execute({ customCommand: command, output: 'Translations generated successfully' });
-                    clearInterval(interval);
-                }
-            }, 1000)
-        })
+    const startAnimationLoop = async (steps: {func: () => Promise<string>, translationAdded: string}[]) => {
+        for await (const step of steps) {
+            const command = await step.func();
+            
+            await new Promise((res, rej) => {
+                const allTranslations = [...TranslationsMock];
+
+                const interval = setInterval(() => {
+                    const translation = allTranslations.shift()
+                    
+                    if (translation) {
+                        const translationToAdd = translation?.content[step.translationAdded];
+
+                        setEditorFiles((prev) => {
+                            const file = prev.find((file) => file.name === translation.name);
+
+                            if (file) return prev.map((prevFile) => prevFile.name === translation.name ? { ...prevFile, content: { ...prevFile.content, [step.translationAdded]: translationToAdd }, lastUpdated: new Date() } : prevFile)
+                            else return [...prev, { ...translation, content: { [step.translationAdded]: translationToAdd }, lastUpdated: new Date() }]
+                        });
+                    } else {
+                        execute({ customCommand: command, output: 'Translation added successfully' });
+                        clearInterval(interval);
+                        res(command);
+                    }
+                }, 1000)
+            });            
+        }
     }
 
-    const firstStep = () => {
-        write('npx i18n-translate-generator translate "Hello world" "en" "greetings"', (command) => {
-            const translations = [...TranslationsMock];
-            const interval = setInterval(() => {
-                const currentTranslation = translations.shift();
-                
-                if (currentTranslation) {
-                    const { greetings } = currentTranslation.content;
-                    
-                    setEditorFiles((prev) => [...prev, { ...currentTranslation, content: { greetings }, lastUpdated: new Date() }]);
-                } else {
-                    execute({ customCommand: command, output: 'Translations generated successfully' });
-                    clearInterval(interval);
-                    secondStep();
-                }
-            }, 1000)
-        });
+    const secondStep = async () => {
+        return await write('npx i18n-translate-generator translate "Welcome to i18n-translate-generator" "en" "welcome"')
+    }
+
+    const firstStep = async () => {
+        return await write('npx i18n-translate-generator translate "Hello world" "en" "greetings"');
     }
 
     useEffect(() => {
-        firstStep();
+        startAnimationLoop([
+            {func: firstStep, translationAdded: 'greetings'},
+            {func: secondStep, translationAdded: 'welcome'}
+        ])
     }, []);
 
     return (

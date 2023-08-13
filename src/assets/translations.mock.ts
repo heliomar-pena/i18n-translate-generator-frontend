@@ -1,14 +1,8 @@
-import { file } from "@/common/code-editor/code-editor";
+import { File } from "@/common/code-editor/code-editor";
 
-// uses file type but content is different
-type fileTranslation = file & {
-    content: {
-        greetings: string,
-        welcome: string
-    }
-}
+type FileTranslation = File
 
-const TranslationsMock: fileTranslation[] = [
+const TranslationsMock: FileTranslation[] = [
     {
         name: "en.json",
         path: ["translations", "i18n"],

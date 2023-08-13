@@ -9,15 +9,19 @@ import Breadcrumb from './components/breadcrumb';
 
 const b612Mono = B612_Mono({ weight: "400", subsets: ["latin"] });
 
-export type file = {
+type FileContent = {
+    [key: string]: string
+}
+
+export type File = {
     name: string,
     path: string[],
-    content: object,
+    content: FileContent,
     lastUpdated?: Date
 }
 
 type CodeEditorProps = {
-    files?: file[],
+    files?: File[],
     isClickable?: boolean,
     className?: string
 }
@@ -35,7 +39,7 @@ export default function CodeEditor ({ isClickable, files = [] }: CodeEditorProps
         }
     }
 
-    const getTabPath = (tab: file) => {
+    const getTabPath = (tab: File) => {
         return tab.path.join('/').concat(`${tab.path.length ? '/' : ''}${tab.name}`);
     }
 

@@ -17,16 +17,18 @@ const useTerminal = (config?: useTerminalProps) => {
     const [name, setName] = useState(config?.name || '');
     const [oldCommands, setOldCommands] = useState<oldCommand[]>(config?.oldCommands || []);
 
-    const write = (command: string, cb: (command?: string) => void) => {
-        const commandByChars = command.split('');
-        const interval = setInterval(() => {
-            if (commandByChars.length) {
-                setCommand((prev) => prev + commandByChars.shift());
-            } else {
-                clearInterval(interval);
-                cb(command);
-            }
-        }, 50);
+    const write = (command: string): Promise<string> => {
+        return new Promise((res, rej) => {
+            const commandByChars = command.split('');
+            const interval = setInterval(() => {
+                if (commandByChars.length) {
+                    setCommand((prev) => prev + commandByChars.shift());
+                } else {
+                    clearInterval(interval);
+                    res(command);
+                }
+            }, 50);
+        })
     };
 
     /**
