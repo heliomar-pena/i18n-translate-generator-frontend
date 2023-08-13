@@ -5,3 +5,11 @@
 .sections {
     margin: 5.6875rem 5.875rem;
 }
+
+.footer {
+    margin: 12.5rem auto 2rem;
+    font-size: 2rem;
+    text-align: left;
+    display: block;
+    width: max-content;
+}

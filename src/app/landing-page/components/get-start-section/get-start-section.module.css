@@ -1,0 +1,27 @@
+.mainTitle {
+    font-size: 3rem;
+    margin: 11.0625rem auto 4.3125rem;
+    width: max-content;
+    text-align: left;
+    display: block;
+}
+
+.codeEditor {
+    margin: 0 5rem;
+}
+
+.guideSection h1 {
+    margin: 2.625rem 0 1.875rem;
+    font-size: 3rem;
+    text-align: left;
+    display: block;
+    font-weight: 700;
+}
+
+.guideSection h2 {
+    margin: 0 0 1.0625rem;
+    font-size: 2rem;
+    text-align: left;
+    display: block;
+    font-weight: 400;
+}

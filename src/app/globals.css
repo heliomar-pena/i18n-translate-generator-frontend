@@ -15,6 +15,14 @@ body, button {
     background-color: var(--bg-primary-color);
 }
 
+body {
+    background-image: url('../assets/background.png');
+    background-origin: border-box;
+    background-position-y: 93px;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
 button {
     border: none;
     background-color: unset;
